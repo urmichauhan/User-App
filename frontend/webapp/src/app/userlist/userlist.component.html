@@ -1,0 +1,55 @@
+<div class="container">
+    
+    <div class="card text-white bg-secondary mb-3">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 " *ngIf="userList.length === 0">Record Not found</h6>
+        <div *ngIf="userList.length > 0">
+  
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th></th>
+                <th scope="col">S. No</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Middle Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userList;let i=index;" [hidden]="">
+                <th> <input (change)="actionCheck($event.target.checked,user._id)" class="form-check-input" type="checkbox" value="">
+                </th>
+                <!-- <th scope="row">{{user.userId}}</th> -->
+                <td>{{i+1}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.middlename}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.state}}</td>
+                <td>{{user.zip}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled" (click)="pageChange(false)" [ngClass]="{'disable':(skip==0)}">
+                <a class="page-link" >Previous</a>
+              </li>
+              <li class="page-item" (click)="pageChange(true)" [ngClass]="{'disable':(skip == totalPages )}">
+                <a class="page-link" >Next</a>
+              </li>
+            </ul>
+          </nav>
+          <button type="button" class="btn btn-info"
+            [ngClass]="{'disable':(selection.length === 0 || selection.length > 1) }" (click)="modifyDetails()">Edit</button>
+          <button type="button" class="btn btn-info" (click)="deleteAll()" [ngClass]="{'disable':selection.length === 0 }">Delete</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

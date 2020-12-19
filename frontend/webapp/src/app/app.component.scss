@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  .wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .header, .footer {
+    background: silver;
+    color: black;
+  }
+  .content {
+    flex: 1;
+    overflow: auto;
+    background: rgb(37, 33, 34);
+  }
+  .nav-link {
+      color: black;
+  }
+  .nav-link {
+      cursor: pointer;
+  }

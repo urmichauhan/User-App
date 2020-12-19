@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <div class="header">
+    <ul class="nav ">
+      <li>
+        <a class="navbar-brand" (click)="navigatePage('home')">
+          <img src="../assets//images/logo.png" title="Code Infinite" width="80" height="50" alt="">
+        </a>
+      </li>
+      <li class="nav-item active" title="home" (click)="navigatePage('home')">
+        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" (click)="navigatePage('adduser')">
+        <a class="nav-link" title="Count Prime Number">Add New User</a>
+      </li>
+      <li class="nav-item" (click)="navigatePage('manageuser')">
+        <a class="nav-link" title="Student Form">User List</a>
+      </li>
+
+    </ul>
+
+  </div>
+  <div class="content">
+    <div style="min-height: 1000px">
+
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="footer" style="text-align: center;">
+    Powered by Code Infinite © {{year}}<br />Created by : Urmi Chauhan<br />
+    <a href="mailto:chauhanurmi2@gmail.com?subject = Feedback&body = Message">
+      Send Feedback or Queries
+    </a>
+  </div>
+</div>
