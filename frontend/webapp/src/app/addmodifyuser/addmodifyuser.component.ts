@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { WebservicesService } from '../webservices.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmodifyuser',
@@ -37,7 +37,8 @@ export class AddModifyUserComponent implements OnInit {
     // other options...
   };
   public today: Date = new Date();
-  constructor(public fb: FormBuilder, public webService: WebservicesService, public route: ActivatedRoute) {
+  constructor(public fb: FormBuilder, public webService: WebservicesService, 
+    public route: ActivatedRoute,public router:Router) {
 
   }
 
@@ -150,6 +151,7 @@ export class AddModifyUserComponent implements OnInit {
     // this.submitted = false;
     this.isModify = false;
     this.user.reset();
+    this.router.navigate(['adduser']);
   }
 
 }
