@@ -51,7 +51,7 @@ export class AddModifyUserComponent implements OnInit {
     return (control: AbstractControl): { [key: string]: any } | null => {
       let flag: boolean = false;
       const initialValue: any = control.value ? control.value : ''
-      if (typeof initialValue == 'string' && this.userList.length > 1) {
+      if (typeof initialValue == 'string' && !this.isModify) {
         this.userList.filter(section => {
           if (section.userId.toLowerCase() == initialValue.toLowerCase()) {
             flag = true;
