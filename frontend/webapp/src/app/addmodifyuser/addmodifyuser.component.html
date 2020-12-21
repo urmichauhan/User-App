@@ -8,75 +8,78 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">User Id</label>
-            <input formControlName="userId" type="text" [disabled]="isModify" class="form-control">
+            <input autocomplete="off" formControlName="userId" type="text" [disabled]="isModify" class="form-control">
             <span class="control-alert"
               *ngIf="user.controls.userId.errors && user.controls.userId.invalid && (user.controls.userId.touched || submitted)">
-              Invalid field
+              Invalid field<small>User Id field is required with only Alphanumeric characters which minimum 6 to maximum 15 characters & Existing User Id not allowed</small>
             </span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="inputEmail4">First Name</label>
-            <input formControlName="firstname" type="text" class="form-control">
+            <input autocomplete="off" formControlName="firstname" type="text" class="form-control">
             <span class="control-alert"
               *ngIf="user.controls.firstname.errors && user.controls.firstname.invalid && (user.controls.firstname.touched || submitted)">
-              Invalid field
+              Invalid field<small>First name is required field with only alphabetical characters</small>
             </span>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputPassword4">Middle Name</label>
-            <input type="text" formControlName="middlename" class="form-control" id="inputPassword4">
-
+            <label >Middle Name</label>
+            <input autocomplete="off" type="text" formControlName="middlename" class="form-control" >
+            <span class="control-alert"
+              *ngIf="user.controls.middlename.errors && user.controls.middlename.invalid && (user.controls.middlename.touched || submitted)">
+              <small>Middle name is accepts only alphabetical characters</small>
+            </span>
           </div>
           <div class="form-group col-md-4">
-            <label for="inputPassword4">Last Name</label>
-            <input type="text" formControlName="lastname" class="form-control" id="inputPassword4">
+            <label >Last Name</label>
+            <input autocomplete="off" type="text" formControlName="lastname" class="form-control" >
             <span class="control-alert"
               *ngIf="user.controls.lastname.errors && user.controls.lastname.invalid && (user.controls.lastname.touched || submitted)">
-              Invalid field
+              Invalid field<small>First name is required field with only alphabetical characters</small>
             </span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputAddress">Address Line 1</label>
-            <textarea class="form-control" formControlName="address1" rows="3"></textarea>
+            <textarea autocomplete="off" class="form-control" formControlName="address1" rows="3"></textarea>
             
           </div>
           <div class="form-group col-md-6">
             <label for="inputAddress">Address Line 2</label>
-            <textarea class="form-control" formControlName="address2" rows="3"></textarea>
+            <textarea autocomplete="off" class="form-control" formControlName="address2" rows="3"></textarea>
           
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputEmail4">Password</label>
-            <input formControlName="password" type="password" class="form-control">
+            <input autocomplete="off" formControlName="password" type="password" class="form-control">
             <span class="control-alert"
-              *ngIf="user.controls.firstname.errors && user.controls.firstname.invalid && (user.controls.firstname.touched || submitted)">
-              Invalid field
+              *ngIf="user.controls.password.errors && user.controls.password.invalid && (user.controls.password.touched || submitted)">
+              Invalid field<small>Passowrd must contain minimum 6 to 20 characters with at least one uppercase,lowercase alphabet,one number & one special character</small>
             </span>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputPassword4">Email</label>
-            <input type="text" formControlName="email" class="form-control" id="inputPassword4">
+            <label >Email</label>
+            <input autocomplete="off" type="text" formControlName="email" class="form-control" >
             <span class="control-alert"
-              *ngIf="user.controls.firstname.errors && user.controls.firstname.invalid && (user.controls.firstname.touched || submitted)">
+              *ngIf="user.controls.email.errors && user.controls.email.invalid && (user.controls.email.touched || submitted)">
               Invalid field
             </span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputPassword4">City</label>
-            <input type="text" formControlName="city" class="form-control" id="inputPassword4">
+            <label >City</label>
+            <input autocomplete="off" type="text" formControlName="city" class="form-control" >
 
           </div>
           <div class="form-group col-md-4">
             <label for="inputState">State</label>
-            <select id="inputState" formControlName="state" class="form-control">
+            <select autocomplete="off" id="inputState" formControlName="state" class="form-control">
               <!-- <option>...</option> -->
               <option *ngFor="let state of stateList" [value]="cityData">{{state}}</option>
             </select>
@@ -84,12 +87,12 @@
           </div>
           <div class="form-group col-md-4">
             <label for="inputState">Zip Code</label>
-            <input type="number" formControlName="zip" class="form-control" id="inputPassword4">
-          </div>
-          <span class="control-alert"
+            <input autocomplete="off" type="text" formControlName="zip" class="form-control" >
+            <span class="control-alert"
             *ngIf="user.controls.zip.errors && user.controls.zip.invalid && (user.controls.zip.touched || submitted)">
-            Invalid field
+            Invalid field<small>Zip code only contain 6 digit numbers</small>
           </span>
+        </div>
         </div>
 
         <button type="submit" class="btn btn-primary" (click)="addStudent()">Submit</button>

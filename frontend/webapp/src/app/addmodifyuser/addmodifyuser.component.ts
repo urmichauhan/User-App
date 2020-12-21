@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { WebservicesService } from '../webservices.service';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-addmodifyuser',
@@ -16,18 +16,17 @@ export class AddModifyUserComponent implements OnInit {
   public isModify: boolean = false;
   public modifyId: any;
   public user = this.fb.group({
-    userId: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15), this.validatorId()]],
-    firstname: ['', Validators.required],
-    middlename: [''],
-    lastname: ['', Validators.required],
-    password: ['', Validators.required],
+    userId: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15), Validators.pattern(/^\w+$/), this.validatorId()]],
+    firstname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
+    middlename: ['', Validators.pattern(/^[a-zA-Z\s]+$/)],
+    lastname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]+$/)]],
+    password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z])(.{6,20})$/)]],
     email: ['', [Validators.required, Validators.email]],
     address1: [''],
     address2: [''],
     city: [''],
     state: [''],
-    zip: ['', [Validators.maxLength(6), Validators.minLength(6), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
-    // profilePhoto: ['',Validators.required]
+    zip: ['',[Validators.minLength(6),Validators.maxLength(6),Validators.pattern(/^[0-9]+$/)]]
   });
   cityData: any = 'Maharashtra';
   stateList: any = ['Maharashtra', 'Gujarat', 'Asam', 'Bihar', 'Delhi', 'Manipur', 'Punjab', 'Mizoram', 'Rajasthan'];
@@ -37,8 +36,8 @@ export class AddModifyUserComponent implements OnInit {
     // other options...
   };
   public today: Date = new Date();
-  constructor(public fb: FormBuilder, public webService: WebservicesService, 
-    public route: ActivatedRoute,public router:Router) {
+  constructor(public fb: FormBuilder, public webService: WebservicesService,
+    public route: ActivatedRoute, public router: Router) {
 
   }
 
