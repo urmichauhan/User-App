@@ -132,7 +132,7 @@ export class AddModifyUserComponent implements OnInit {
             this.user.reset();
           }, 5000);
           this.getUserList();
-          this.router.navigate(['adduser']);
+          this.router.navigate(['manageuser']);
         }, error => {
           console.log(error);
         });
