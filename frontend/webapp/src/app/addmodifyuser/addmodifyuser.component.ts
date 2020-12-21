@@ -26,7 +26,7 @@ export class AddModifyUserComponent implements OnInit {
     address2: [''],
     city: [''],
     state: [''],
-    zip: ['',[Validators.minLength(6),Validators.maxLength(6),Validators.pattern(/^[0-9]+$/)]]
+    zip: ['', [Validators.minLength(6), Validators.maxLength(6), Validators.pattern(/^[0-9]+$/)]]
   });
   cityData: any = 'Maharashtra';
   stateList: any = ['Maharashtra', 'Gujarat', 'Asam', 'Bihar', 'Delhi', 'Manipur', 'Punjab', 'Mizoram', 'Rajasthan'];
@@ -132,6 +132,7 @@ export class AddModifyUserComponent implements OnInit {
             this.user.reset();
           }, 5000);
           this.getUserList();
+          this.router.navigate(['adduser']);
         }, error => {
           console.log(error);
         });
