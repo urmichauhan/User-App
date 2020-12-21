@@ -22,7 +22,7 @@
             <input autocomplete="off" formControlName="firstname" type="text" class="form-control">
             <span class="control-alert"
               *ngIf="user.controls.firstname.errors && user.controls.firstname.invalid && (user.controls.firstname.touched || submitted)">
-              Invalid field<small>First name is required field with only alphabetical characters</small>
+              Invalid field<small>First name is required field contains only alphabetical characters</small>
             </span>
           </div>
           <div class="form-group col-md-4">
@@ -38,7 +38,7 @@
             <input autocomplete="off" type="text" formControlName="lastname" class="form-control" >
             <span class="control-alert"
               *ngIf="user.controls.lastname.errors && user.controls.lastname.invalid && (user.controls.lastname.touched || submitted)">
-              Invalid field<small>First name is required field with only alphabetical characters</small>
+              Invalid field<small>Last name is required field contains only alphabetical characters</small>
             </span>
           </div>
         </div>
@@ -60,7 +60,7 @@
             <input autocomplete="off" formControlName="password" type="password" class="form-control">
             <span class="control-alert"
               *ngIf="user.controls.password.errors && user.controls.password.invalid && (user.controls.password.touched || submitted)">
-              Invalid field<small>Passowrd must contain minimum 6 to 20 characters with at least one uppercase,lowercase alphabet,one number & one special character</small>
+              Invalid field<small>Password must contains minimum 6 to 20 characters with at least one uppercase,lowercase alphabet,one number & one special character</small>
             </span>
           </div>
           <div class="form-group col-md-6">
@@ -91,7 +91,7 @@
             <input autocomplete="off" type="text" formControlName="zip" class="form-control" >
             <span class="control-alert"
             *ngIf="user.controls.zip.errors && user.controls.zip.invalid && (user.controls.zip.touched || submitted)">
-            Invalid field<small>Zip code only contain 6 digit numbers</small>
+            Invalid field<small>Zip code contains only 6 digit numbers</small>
           </span>
         </div>
         </div>
